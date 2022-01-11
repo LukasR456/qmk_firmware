@@ -78,6 +78,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_VAL_STEP 8
 //#define RGBLIGHT_SPLIT   // sync LEDs between RIGHT and LEFT hand
 
+/* Tap and Hold delay */
+#define TAPPING_TERM 300
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
