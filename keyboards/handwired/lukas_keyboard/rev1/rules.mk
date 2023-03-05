@@ -30,7 +30,7 @@ BLUETOOTH_ENABLE = no       # Enable Bluetooth with the Adafruit EZ-Key HID
 AUDIO_ENABLE = no           # Audio output on port C6
 RGBLIGHT_ENABLE = yes       # Enable WS2812 RGB underlight.
 ENCODER_ENABLE = yes		# Enable encoder support
-COMBO_ENABLE = yes          # Enable combos
+COMBO_ENABLE = no           # Enable combos
 
 SPLIT_KEYBOARD = yes
 

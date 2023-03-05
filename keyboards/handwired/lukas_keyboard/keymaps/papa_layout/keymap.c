@@ -38,9 +38,9 @@ enum custom_keycodes {
   CONF,
 };
 
-void keyboard_post_init_user(void) {
+/*void keyboard_post_init_user(void) {
   layer_on(_MODI); //Turn modifiers layer on
-}
+}*/
 
 // Shortcut to make keymap more readable
 #define KC_STAB S(KC_TAB)
@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //Numblock
   [_NUMB] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,                                            _______ ,KC_NLCK ,KC_PSLS ,KC_PAST ,KC_PMNS ,_______ ,
+     _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,                                            _______ ,KC_NUM  ,KC_PSLS ,KC_PAST ,KC_PMNS ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                                           ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______ ,KC_F12  ,KC_F11  ,KC_F10  ,KC_F9   ,_______ ,                                            _______ ,KC_P7   ,KC_P8   ,KC_P9   ,KC_PPLS ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┬────────┐       ┌────────┬────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -142,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //Configuration and RGB
   [_CONF] = LAYOUT(
   //┌────────┬──────────┬──────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     RESET   ,_______   ,_______   ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
+     QK_BOOT ,_______   ,_______   ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
   //├────────┼──────────┼──────────┼────────┼────────┼────────┤                                           ├────────┼────────┼────────┼────────┼────────┼────────┤
      _______ ,TG(_MODI) ,_______   ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,_______ ,
   //├────────┼──────────┼──────────┼────────┼────────┼────────┼────────┬────────┐       ┌────────┬────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -158,33 +158,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //Rotary encoders callback
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) { /* Encoder 1 */
+    if (index == 0) { // Encoder 1
         if (clockwise) {
             //redo
-            register_mods(KC_LCTRL);
+            register_mods(KC_LCTL);
             register_mods(KC_LSFT);
             tap_code(DE_Z);
-            unregister_mods(KC_LCTRL);
+            unregister_mods(KC_LCTL);
             unregister_mods(KC_LSFT);
         } else {
             // Undo
-            register_mods(KC_LCTRL);
+            register_mods(KC_LCTL);
             tap_code(DE_Z);
-            unregister_mods(KC_LCTRL);
+            unregister_mods(KC_LCTL);
         }
-    } else if (index == 1) { /* Encoder 2 */
+    } else if (index == 1) { // Encoder 2
         if (clockwise) {
 
         } else {
 
         }
-    } else if (index == 2) { /* Encoder 3 */
+    } else if (index == 2) { // Encoder 3
         if (clockwise) {
             tap_code(KC_AUDIO_VOL_UP);
         } else {
             tap_code(KC_AUDIO_VOL_DOWN);
         }
-    } else if (index == 3) { /* Encoder 4 */
+    } else if (index == 3) { // Encoder 4
         if (clockwise) {
 
         } else {
